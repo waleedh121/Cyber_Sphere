@@ -159,6 +159,7 @@ namespace CyberSphere.Infrastructure.Persistence.Repositories
             CancellationToken ct = default)
         {
             var tools = await _db.Tools
+                .Include(t => t.Owner)
                 .Include(t => t.Category)
                 .OrderBy(t => t.Name)
                 .AsNoTracking()

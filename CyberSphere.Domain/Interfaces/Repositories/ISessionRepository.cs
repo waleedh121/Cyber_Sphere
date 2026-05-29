@@ -40,6 +40,8 @@ namespace CyberSphere.Domain.Interfaces.Repositories
 
         Task AddAsync(Session session, CancellationToken ct = default);
         void Update(Session session);
+
+        Task<IReadOnlyList<Session>> GetAllForDashboardAsync(CancellationToken ct = default);
         Task SaveChangesAsync(CancellationToken ct = default);
     }
 }

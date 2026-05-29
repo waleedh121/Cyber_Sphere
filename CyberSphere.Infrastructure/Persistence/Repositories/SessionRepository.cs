@@ -56,6 +56,18 @@ namespace CyberSphere.Infrastructure.Persistence.Repositories
             return (items.AsReadOnly(), totalCount);
         }
 
+        public async Task<IReadOnlyList<Session>> GetAllForDashboardAsync(CancellationToken ct = default)
+        {
+            var sessions = await _db.Sessions
+                .Include(s => s.User)
+                .Include(s => s.Server)
+                .OrderByDescending(s => s.StartedAt)
+                .AsNoTracking()
+                .ToListAsync(ct);
+
+            return sessions.AsReadOnly();
+        }
+
         public async Task<IReadOnlyList<Session>> GetAllActiveAsync(CancellationToken ct = default)
         {
             var sessions = await _db.Sessions

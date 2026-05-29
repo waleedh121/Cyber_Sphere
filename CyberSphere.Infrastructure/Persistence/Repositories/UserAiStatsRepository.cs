@@ -19,6 +19,15 @@ namespace CyberSphere.Infrastructure.Persistence.Repositories
         public async Task<UserAiStats?> GetByUserIdAsync(Guid userId, CancellationToken ct = default) =>
             await _db.UserAiStats
                 .FirstOrDefaultAsync(s => s.UserId == userId, ct);
+       
+        public async Task<IReadOnlyList<UserAiStats>> GetAllAsync(CancellationToken ct = default)
+        {
+            var stats = await _db.UserAiStats
+                .AsNoTracking()
+                .ToListAsync(ct);
+
+            return stats.AsReadOnly();
+        }
 
         public async Task AddAsync(UserAiStats stats, CancellationToken ct = default) =>
             await _db.UserAiStats.AddAsync(stats, ct);

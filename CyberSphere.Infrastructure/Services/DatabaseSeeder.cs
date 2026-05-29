@@ -7,8 +7,9 @@ using CyberSphere.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using CyberSphere.Infrastructure.Persistence;
 
-namespace CyberSphere.Infrastructure.Persistence
+namespace CyberSphere.Infrastructure.Services
 {
     /// <summary>
     /// Seeds lookup data (Categories) on application startup.

@@ -59,6 +59,18 @@ public sealed class UserRepository : IUserRepository
         string userName, CancellationToken ct = default) =>
         await _db.Users
             .AnyAsync(u => u.UserName == userName, ct);
+   
+    public async Task<IReadOnlyList<User>> GetAllForDashboardAsync(
+    CancellationToken ct = default)
+    {
+        var users = await _db.Users
+            .OrderBy(u => u.CreatedAt)
+            .AsNoTracking()
+            .ToListAsync(ct);
+
+        return users.AsReadOnly();
+    }
+
 
     public async Task AddAsync(User user, CancellationToken ct = default) =>
         await _db.Users.AddAsync(user, ct);

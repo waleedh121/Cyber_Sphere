@@ -5,12 +5,14 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using CyberSphere.Domain.Entities;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace CyberSphere.Infrastructure.Persistence
 {
     public sealed class AppDbContext : DbContext
     {
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<User> Users => Set<User>();
@@ -19,6 +21,7 @@ namespace CyberSphere.Infrastructure.Persistence
         public DbSet<ToolCommand> ToolCommands => Set<ToolCommand>();
         public DbSet<ToolReview> ToolReviews => Set<ToolReview>();
         public DbSet<Rating> Ratings => Set<Rating>();
+
 
         // ── VM Sessions ───────────────────────────────────────────────────────────
         public DbSet<Session> Sessions => Set<Session>();

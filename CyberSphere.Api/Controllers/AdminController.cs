@@ -1,7 +1,9 @@
 ﻿using CyberSphere.Application.Features.Admin.Commands.ManageServer;
 using CyberSphere.Application.Features.Admin.Commands.ReviewTool;
 using CyberSphere.Application.Features.Admin.Commands.TerminateSession;
+using CyberSphere.Application.Features.Admin.DTOs;
 using CyberSphere.Application.Features.Admin.Queries.GetAllSessions;
+using CyberSphere.Application.Features.Admin.Queries.GetDashboardStats;
 using CyberSphere.Application.Features.Admin.Queries.GetPendingTools;
 using CyberSphere.Application.Features.Admin.Queries.GetToolStats;
 using CyberSphere.Application.Features.Auth.DTOs;
@@ -14,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CyberSphere.Api.Controllers
 {
+
     /// <summary>
     /// Admin-only endpoints. All routes require [Authorize(Roles = "Admin")].
     /// A 401 means no token; a 403 means the token is valid but the role is User.
@@ -171,6 +174,26 @@ namespace CyberSphere.Api.Controllers
             CancellationToken ct)
         {
             var result = await _mediator.Send(new GetPlatformToolStatsQuery(), ct);
+            return Ok(result);
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // Admin Dashboard
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        /// <summary>
+        /// Aggregated platform dashboard: users, tools, sessions, ratings, AI usage,
+        /// and the 10 most-recent tool submissions and sessions.
+        /// All queries run concurrently.
+        /// </summary>
+        /// <response code="200">Full platform dashboard snapshot.</response>
+        [HttpGet("dashboard")]
+        [ProducesResponseType(typeof(AdminDashboardResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status403Forbidden)]
+        public async Task<ActionResult<AdminDashboardResponse>> GetDashboard(CancellationToken ct)
+        {
+            var result = await _mediator.Send(new GetAdminDashboardQuery(), ct);
             return Ok(result);
         }
     }

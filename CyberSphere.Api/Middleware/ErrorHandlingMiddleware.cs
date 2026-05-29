@@ -38,45 +38,6 @@ namespace CyberSphere.Api.Middleware
         }
 
         //private async Task HandleExceptionAsync(HttpContext context, Exception exception)
-        //{
-        //    var (statusCode, title, errors) = exception switch
-        //    {
-        //        // FluentValidation.ValidationException — thrown by ValidationBehavior pipeline
-        //        FluentValidation.ValidationException fve =>
-        //            (StatusCodes.Status422UnprocessableEntity, "Validation failed",
-        //             (IDictionary<string, string[]>?)fve.Errors
-        //                .GroupBy(e => e.PropertyName)
-        //                .ToDictionary(g => g.Key, g => g.Select(e => e.ErrorMessage).ToArray())),
-
-        //        CyberSphere.Application.Exceptions.ValidationException ve =>
-        //            (
-        //                StatusCodes.Status422UnprocessableEntity,
-        //                string.Join(" | ", ve.Errors.SelectMany(x => x.Value)),
-        //                ve.Errors
-        //            ),
-
-        //        CyberSphere.Application.Exceptions.UnauthorizedException => (
-        //                    StatusCodes.Status500InternalServerError,
-        //                    exception.ToString(),
-        //                    null
-        //                ),
-
-        //        //    (StatusCodes.Status401Unauthorized, exception.Message, null),
-
-        //        ForbiddenException =>
-        //            (StatusCodes.Status403Forbidden, exception.Message, null),
-
-        //        NotFoundException =>
-        //            (StatusCodes.Status404NotFound, exception.Message, null),
-
-        //        ConflictException =>
-        //            (StatusCodes.Status409Conflict, exception.Message, null),
-
-        //        BadRequestException =>
-        //            (StatusCodes.Status400BadRequest, exception.Message, null),
-
-        //        _ => (StatusCodes.Status500InternalServerError, exception.ToString(), null)
-        //    };
 
         private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
@@ -107,19 +68,19 @@ namespace CyberSphere.Api.Middleware
                 BadRequestException =>
                     (StatusCodes.Status400BadRequest, exception.Message, null),
 
-                _ => (StatusCodes.Status500InternalServerError, "An unexpected error occurred.", null)
-                //_ => (
-                //    StatusCodes.Status500InternalServerError,
-                //    exception.InnerException?.Message ?? exception.Message,
-                //    new Dictionary<string, string[]>
-                //    {
-                //    { "exception", new[]
-                //        {
-                //            exception.ToString()
-                //        }
-                //    }
-                //                }
-                //            )
+                //_ => (StatusCodes.Status500InternalServerError, "An unexpected error occurred.", null)
+                _ => (
+                    StatusCodes.Status500InternalServerError,
+                    exception.InnerException?.Message ?? exception.Message,
+                    new Dictionary<string, string[]>
+                    {
+                    { "exception", new[]
+                        {
+                            exception.ToString()
+                        }
+                    }
+                                }
+                            )
             };
             // Only log 5xx as errors; 4xx are expected client mistakes
             if (statusCode >= 500)

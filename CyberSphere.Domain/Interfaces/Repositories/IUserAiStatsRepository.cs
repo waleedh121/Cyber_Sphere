@@ -17,6 +17,7 @@ namespace CyberSphere.Domain.Interfaces.Repositories
 
         Task AddAsync(UserAiStats stats, CancellationToken ct = default);
         void Update(UserAiStats stats);
+        Task<IReadOnlyList<UserAiStats>> GetAllAsync(CancellationToken ct = default);
         Task SaveChangesAsync(CancellationToken ct = default);
     }
 
