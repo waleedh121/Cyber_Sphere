@@ -8,9 +8,13 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using CyberSphere.Domain.Interfaces.Services;
 using Microsoft.Extensions.Logging;
+using CyberSphere.Infrastructure.Resilience;
+using Polly.CircuitBreaker;
+using Polly;
 
 namespace CyberSphere.Infrastructure.Services.AI
 {
+
     /// <summary>
     /// Forwards AI requests to the external Python AI microservice via HTTP.
     /// Uses IHttpClientFactory (named client "PythonAiService") — registered in
@@ -28,6 +32,7 @@ namespace CyberSphere.Infrastructure.Services.AI
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<PythonAiGatewayService> _logger;
+        private readonly ResiliencePipeline<HttpResponseMessage> _pipeline;
 
         private static readonly JsonSerializerOptions JsonOptions = new()
         {
@@ -42,6 +47,7 @@ namespace CyberSphere.Infrastructure.Services.AI
         {
             _httpClientFactory = httpClientFactory;
             _logger = logger;
+            _pipeline = ResiliencePolicies.CreateAiHttpPipeline(logger);
         }
 
         public async Task<AiGatewayResponse> SendAsync(
@@ -66,7 +72,18 @@ namespace CyberSphere.Infrastructure.Services.AI
                     "Sending {MessageCount} messages to Python AI service",
                     conversationHistory.Count);
 
-                var httpResponse = await client.PostAsync("/chat", content, ct);
+                HttpResponseMessage httpResponse;
+                try
+                {
+                    httpResponse = await _pipeline.ExecuteAsync(
+                        async token => await client.PostAsync("/chat", content, token), ct);
+                }
+                catch (BrokenCircuitException ex)
+                {
+                    _logger.LogError(ex, "AI gateway circuit breaker is OPEN — request rejected");
+                    return FailedResponse(sw.Elapsed,
+                        "The AI service is temporarily unavailable. Please try again in a moment.");
+                }
                 sw.Stop();
 
                 if (!httpResponse.IsSuccessStatusCode)
@@ -140,4 +157,5 @@ namespace CyberSphere.Infrastructure.Services.AI
         private sealed record PythonAiMessagePayload(string Role, string Content);
         private sealed record PythonAiResponse(string Content, int? TokensUsed);
     }
+
 }

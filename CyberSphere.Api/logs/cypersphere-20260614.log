@@ -1,0 +1,281 @@
+2026-06-14 20:19:02.408 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-14 20:19:02.473 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-14 20:19:02.489 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-14 20:19:02.492 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-14 20:19:02.528 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-06-14 20:19:02.760 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-06-14 20:19:03.217 +03:00 [INF] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7272
+2026-06-14 20:19:03.219 +03:00 [INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5179
+2026-06-14 20:19:03.323 +03:00 [INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2026-06-14 20:19:03.325 +03:00 [INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2026-06-14 20:19:03.326 +03:00 [INF] Microsoft.Hosting.Lifetime: Content root path: D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api
+2026-06-14 20:19:04.020 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/index.html responded 200 in 84.5466ms
+2026-06-14 20:19:04.348 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/v1/swagger.json responded 200 in 115.7914ms
+2026-06-14 20:20:40.166 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/index.html responded 200 in 9.1200ms
+2026-06-14 20:20:40.266 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/swagger-ui.css responded 200 in 82.0599ms
+2026-06-14 20:20:40.268 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 81.8392ms
+2026-06-14 20:20:40.356 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 172.3925ms
+2026-06-14 20:20:40.563 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/favicon-32x32.png responded 200 in 0.3411ms
+2026-06-14 20:20:40.610 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/v1/swagger.json responded 200 in 81.6909ms
+2026-06-14 20:55:27.438 +03:00 [WRN] LuckyPennySoftware.MediatR.License: You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-14 20:55:27.534 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling LoginCommand
+2026-06-14 20:55:27.732 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (71ms) [Parameters=[@__ToLowerInvariant_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Bio], [u].[CreatedAt], [u].[Email], [u].[GitHubUrl], [u].[PasswordHash], [u].[PasswordResetToken], [u].[PasswordResetTokenExpiry], [u].[ProfilePictureUrl], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[Role], [u].[TotalToolsUploaded], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__ToLowerInvariant_0
+2026-06-14 20:55:28.495 +03:00 [ERR] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Request LoginCommand failed after 958ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+2026-06-14 20:55:28.568 +03:00 [ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 500 in 2542.0315ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+   at CyberSphere.Api.Controllers.AuthController.Login(LoginRequest request, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api\Controllers\AuthController.cs:line 168
+   at lambda_method8(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-06-14 20:55:28.643 +03:00 [WRN] CyberSphere.Api.Middleware.ErrorHandlingMiddleware: Client error 401: Invalid email or password.
+2026-06-14 20:55:43.965 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling LoginCommand
+2026-06-14 20:55:44.020 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@__ToLowerInvariant_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Bio], [u].[CreatedAt], [u].[Email], [u].[GitHubUrl], [u].[PasswordHash], [u].[PasswordResetToken], [u].[PasswordResetTokenExpiry], [u].[ProfilePictureUrl], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[Role], [u].[TotalToolsUploaded], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__ToLowerInvariant_0
+2026-06-14 20:55:44.341 +03:00 [ERR] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Request LoginCommand failed after 373ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+2026-06-14 20:55:44.386 +03:00 [ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 500 in 423.7603ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+   at CyberSphere.Api.Controllers.AuthController.Login(LoginRequest request, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api\Controllers\AuthController.cs:line 168
+   at lambda_method8(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-06-14 20:55:44.436 +03:00 [WRN] CyberSphere.Api.Middleware.ErrorHandlingMiddleware: Client error 401: Invalid email or password.
+2026-06-14 20:56:05.252 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling LoginCommand
+2026-06-14 20:56:05.265 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (2ms) [Parameters=[@__ToLowerInvariant_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Bio], [u].[CreatedAt], [u].[Email], [u].[GitHubUrl], [u].[PasswordHash], [u].[PasswordResetToken], [u].[PasswordResetTokenExpiry], [u].[ProfilePictureUrl], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[Role], [u].[TotalToolsUploaded], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__ToLowerInvariant_0
+2026-06-14 20:56:05.584 +03:00 [ERR] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Request LoginCommand failed after 326ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+2026-06-14 20:56:05.629 +03:00 [ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 500 in 383.3638ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+   at CyberSphere.Api.Controllers.AuthController.Login(LoginRequest request, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api\Controllers\AuthController.cs:line 168
+   at lambda_method8(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-06-14 20:56:05.682 +03:00 [WRN] CyberSphere.Api.Middleware.ErrorHandlingMiddleware: Client error 401: Invalid email or password.
+2026-06-14 20:56:09.908 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling LoginCommand
+2026-06-14 20:56:09.923 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (10ms) [Parameters=[@__ToLowerInvariant_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Bio], [u].[CreatedAt], [u].[Email], [u].[GitHubUrl], [u].[PasswordHash], [u].[PasswordResetToken], [u].[PasswordResetTokenExpiry], [u].[ProfilePictureUrl], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[Role], [u].[TotalToolsUploaded], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__ToLowerInvariant_0
+2026-06-14 20:56:10.246 +03:00 [ERR] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Request LoginCommand failed after 336ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+2026-06-14 20:56:10.289 +03:00 [ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 500 in 380.9892ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+   at CyberSphere.Api.Controllers.AuthController.Login(LoginRequest request, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api\Controllers\AuthController.cs:line 168
+   at lambda_method8(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-06-14 20:56:10.338 +03:00 [WRN] CyberSphere.Api.Middleware.ErrorHandlingMiddleware: Client error 401: Invalid email or password.
+2026-06-14 20:56:20.573 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling LoginCommand
+2026-06-14 20:56:20.578 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (3ms) [Parameters=[@__ToLowerInvariant_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Bio], [u].[CreatedAt], [u].[Email], [u].[GitHubUrl], [u].[PasswordHash], [u].[PasswordResetToken], [u].[PasswordResetTokenExpiry], [u].[ProfilePictureUrl], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[Role], [u].[TotalToolsUploaded], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__ToLowerInvariant_0
+2026-06-14 20:56:20.898 +03:00 [ERR] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Request LoginCommand failed after 323ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+2026-06-14 20:56:20.951 +03:00 [ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 500 in 378.4359ms
+CyberSphere.Application.Exceptions.UnauthorizedException: Invalid email or password.
+   at CyberSphere.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Auth\Commands\Login\LoginCommand .cs:line 66
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+   at CyberSphere.Api.Controllers.AuthController.Login(LoginRequest request, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api\Controllers\AuthController.cs:line 168
+   at lambda_method8(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-06-14 20:56:21.009 +03:00 [WRN] CyberSphere.Api.Middleware.ErrorHandlingMiddleware: Client error 401: Invalid email or password.
+2026-06-14 20:56:28.243 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling LoginCommand
+2026-06-14 20:56:28.248 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (2ms) [Parameters=[@__ToLowerInvariant_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Bio], [u].[CreatedAt], [u].[Email], [u].[GitHubUrl], [u].[PasswordHash], [u].[PasswordResetToken], [u].[PasswordResetTokenExpiry], [u].[ProfilePictureUrl], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[Role], [u].[TotalToolsUploaded], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__ToLowerInvariant_0
+2026-06-14 20:56:28.657 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (6ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [RefreshToken] = @p0, [RefreshTokenExpiry] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2026-06-14 20:56:28.672 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handled LoginCommand in 427ms
+2026-06-14 20:56:28.685 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 442.2624ms
+2026-06-14 21:04:53.500 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling SubmitToolCommand
+2026-06-14 21:04:53.566 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (8ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name], [c].[Slug]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__get_Item_0
+2026-06-14 21:04:53.625 +03:00 [ERR] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Request SubmitToolCommand failed after 123ms
+CyberSphere.Application.Exceptions.NotFoundException: Category with key '3fa85f64-5717-4562-b3fc-2c963f66afa6' was not found.
+   at CyberSphere.Application.Features.Tools.Commands.SubmitTool.SubmitToolCommandHandler.Handle(SubmitToolCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Tools\Commands\SubmitTool\SubmitToolCommand.cs:line 108
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+2026-06-14 21:04:53.669 +03:00 [ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/tools responded 500 in 248.6155ms
+CyberSphere.Application.Exceptions.NotFoundException: Category with key '3fa85f64-5717-4562-b3fc-2c963f66afa6' was not found.
+   at CyberSphere.Application.Features.Tools.Commands.SubmitTool.SubmitToolCommandHandler.Handle(SubmitToolCommand cmd, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Features\Tools\Commands\SubmitTool\SubmitToolCommand.cs:line 108
+   at CyberSphere.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\ValidationBehavior.cs:line 54
+   at CyberSphere.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Application\Common\Behaviors\LoggingBehavior.cs:line 39
+   at CyberSphere.Api.Controllers.ToolsController.SubmitTool(SubmitToolRequest request, CancellationToken ct) in D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api\Controllers\ToolsController.cs:line 69
+   at lambda_method201(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-06-14 21:04:53.720 +03:00 [WRN] CyberSphere.Api.Middleware.ErrorHandlingMiddleware: Client error 404: Category with key '3fa85f64-5717-4562-b3fc-2c963f66afa6' was not found.
+2026-06-14 21:05:45.791 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling SubmitToolCommand
+2026-06-14 21:05:45.811 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (3ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name], [c].[Slug]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__get_Item_0
+2026-06-14 21:05:45.838 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (12ms) [Parameters=[@__name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tools] AS [t]
+        WHERE [t].[Name] = @__name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-06-14 21:05:45.983 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = DateTime2), @p3='?' (Size = 2000), @p4='?' (Size = 20), @p5='?' (Size = 500), @p6='?' (Size = 100), @p7='?' (DbType = Guid), @p8='?' (Size = 20), @p9='?' (Size = 500), @p10='?' (DbType = Guid), @p11='?' (Size = 1000), @p12='?' (Size = 1000), @p13='?' (Size = 100), @p14='?' (Size = 500), @p15='?' (DbType = Guid), @p16='?' (DbType = Guid), @p17='?' (Size = 1000), @p18='?' (Size = 1000), @p19='?' (Size = 100), @p20='?' (Size = 500), @p21='?' (DbType = Guid), @p22='?' (DbType = Guid), @p23='?' (Size = 1000), @p24='?' (Size = 1000), @p25='?' (Size = 100), @p26='?' (Size = 500), @p27='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Tools] ([Id], [CategoryId], [CreatedAt], [Description], [DifficultyLevel], [GitHubUrl], [Name], [OwnerId], [Status], [Tags])
+OUTPUT INSERTED.[AverageRating], INSERTED.[RatingCount], INSERTED.[UsageCount]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+INSERT INTO [ToolCommands] ([Id], [Description], [Example], [Name], [Syntax], [ToolId])
+VALUES (@p10, @p11, @p12, @p13, @p14, @p15),
+(@p16, @p17, @p18, @p19, @p20, @p21),
+(@p22, @p23, @p24, @p25, @p26, @p27);
+2026-06-14 21:05:46.006 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handled SubmitToolCommand in 213ms
+2026-06-14 21:05:46.028 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/tools responded 201 in 239.1761ms
+2026-06-14 22:06:52.566 +03:00 [INF] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Handling ForgotPasswordCommand
+2026-06-14 22:06:52.650 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (34ms) [Parameters=[@__ToLowerInvariant_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Bio], [u].[CreatedAt], [u].[Email], [u].[GitHubUrl], [u].[PasswordHash], [u].[PasswordResetToken], [u].[PasswordResetTokenExpiry], [u].[ProfilePictureUrl], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[Role], [u].[TotalToolsUploaded], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__ToLowerInvariant_0
+2026-06-14 22:06:52.667 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (5ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?' (Size = 200), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [PasswordResetToken] = @p0, [PasswordResetTokenExpiry] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2026-06-14 22:06:56.862 +03:00 [WRN] CyberSphere.Application.Common.Behaviors.LoggingBehavior: Slow request: ForgotPasswordCommand took 4292ms
+2026-06-14 22:06:56.870 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/forgot-password responded 200 in 4336.7994ms

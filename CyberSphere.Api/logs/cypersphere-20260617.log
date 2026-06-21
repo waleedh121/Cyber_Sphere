@@ -1,0 +1,26 @@
+2026-06-17 21:23:07.178 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-17 21:23:07.260 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-17 21:23:07.268 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-17 21:23:07.271 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-17 21:23:07.309 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-06-17 21:23:07.576 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-06-17 21:23:08.229 +03:00 [INF] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7272
+2026-06-17 21:23:08.231 +03:00 [INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5179
+2026-06-17 21:23:08.363 +03:00 [INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2026-06-17 21:23:08.368 +03:00 [INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2026-06-17 21:23:08.368 +03:00 [INF] Microsoft.Hosting.Lifetime: Content root path: D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api
+2026-06-17 21:23:12.262 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/index.html responded 200 in 96.6448ms
+2026-06-17 21:23:12.594 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/v1/swagger.json responded 200 in 105.9802ms

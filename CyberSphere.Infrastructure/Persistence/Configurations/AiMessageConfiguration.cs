@@ -34,6 +34,13 @@ namespace CyberSphere.Infrastructure.Persistence.Configurations
             // ── Indexes ───────────────────────────────────────────────────────────
             // GetByIdWithMessagesAsync — chronological message load per session
             builder.HasIndex(m => new { m.SessionId, m.CreatedAt });
+
+
+            // ── Relations ─────────────────────────────────────────────────────────
+            builder.HasOne(m => m.Session)
+                .WithMany(s => s.Messages)
+                .HasForeignKey(m => m.SessionId)
+                .OnDelete(DeleteBehavior.Cascade); 
         }
     }
 

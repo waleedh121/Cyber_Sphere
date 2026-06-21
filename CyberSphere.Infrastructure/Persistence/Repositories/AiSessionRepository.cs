@@ -45,7 +45,11 @@ namespace CyberSphere.Infrastructure.Persistence.Repositories
         public void Update(AiSession session) =>
             _db.AiSessions.Update(session);
 
+        public async Task AddMessageAsync(AiMessage message, CancellationToken ct = default) =>
+             await _db.Set<AiMessage>().AddAsync(message, ct);
+
         public async Task SaveChangesAsync(CancellationToken ct = default) =>
             await _db.SaveChangesAsync(ct);
+
     }
 }

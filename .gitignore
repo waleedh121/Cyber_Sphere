@@ -1,5 +1,19 @@
-bin/
-obj/
-.vs/
-.env
-appsettings.Development.json
+# .NET Build Outputs
+**/bin/
+**/obj/
+**/.vs/
+
+# .NET Secrets
+**/appsettings.Development.json
+**/appsettings.json
+
+# Python Virtual Environments
+**/venv/
+**/.venv/
+**/env/
+**/.env
+
+# AI Models & Large Files
+**/*.pth
+**/*.onnx
+**/*.h5

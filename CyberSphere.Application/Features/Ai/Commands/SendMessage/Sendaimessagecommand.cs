@@ -15,7 +15,6 @@ using Microsoft.Extensions.Logging;
 
 namespace CyberSphere.Application.Features.Ai.Commands.SendMessage
 {
-
     // ── Command ───────────────────────────────────────────────────────────────────
 
     public sealed record SendAiMessageCommand(
@@ -86,10 +85,10 @@ namespace CyberSphere.Application.Features.Ai.Commands.SendMessage
 
             // ── Persist user message first (before calling AI) ────────────────────
             var userMessage = AiMessage.CreateUserMessage(session.Id, cmd.Message);
-            session.Messages.Add(userMessage);
+
+            await _sessions.AddMessageAsync(userMessage, ct);
 
             // ── Build conversation context for the Python service ─────────────────
-            // The Python service is stateless — we send the full history every time
             var context = BuildConversationContext(session);
 
             // ── Forward to Python AI microservice ─────────────────────────────────
@@ -110,20 +109,24 @@ namespace CyberSphere.Application.Features.Ai.Commands.SendMessage
                     sessionId: session.Id,
                     errorMessage: aiResponse.ErrorMessage ?? "Unknown error");
 
-            session.Messages.Add(assistantMessage);
+            await _sessions.AddMessageAsync(assistantMessage, ct);
 
             // ── Update analytics — upsert stats row ───────────────────────────────
             var userStats = await _stats.GetByUserIdAsync(_currentUser.UserId, ct);
             if (userStats is null)
             {
                 userStats = UserAiStats.CreateForUser(_currentUser.UserId);
+                userStats.RecordRequest(aiResponse.Success ? aiResponse.TokensUsed : 0);
                 await _stats.AddAsync(userStats, ct);
             }
+            else
+            {
+                userStats.RecordRequest(aiResponse.Success ? aiResponse.TokensUsed : 0);
 
-            userStats.RecordRequest(aiResponse.Success ? aiResponse.TokensUsed : 0);
+                _stats.Update(userStats);
+            }
 
             // ── Persist everything in one transaction ─────────────────────────────
-            _sessions.Update(session);
             await _sessions.SaveChangesAsync(ct);
 
             _logger.LogInformation(

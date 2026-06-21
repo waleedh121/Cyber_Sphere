@@ -1,0 +1,57 @@
+2026-06-15 17:16:14.298 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-15 17:16:14.390 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-15 17:16:14.404 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-15 17:16:14.418 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-15 17:16:14.466 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-06-15 17:16:14.867 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-06-15 17:16:15.534 +03:00 [INF] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7272
+2026-06-15 17:16:15.538 +03:00 [INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5179
+2026-06-15 17:16:15.844 +03:00 [INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2026-06-15 17:16:15.873 +03:00 [INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2026-06-15 17:16:15.875 +03:00 [INF] Microsoft.Hosting.Lifetime: Content root path: D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api
+2026-06-15 17:16:19.709 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/index.html responded 200 in 128.3630ms
+2026-06-15 17:16:20.064 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/favicon-32x32.png responded 200 in 10.9552ms
+2026-06-15 17:16:20.173 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/v1/swagger.json responded 200 in 139.2986ms
+2026-06-15 17:47:30.200 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-15 17:47:30.287 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-15 17:47:30.300 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-15 17:47:30.307 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-06-15 17:47:30.328 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-06-15 17:47:30.523 +03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-06-15 17:47:30.815 +03:00 [INF] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7272
+2026-06-15 17:47:30.817 +03:00 [INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5179
+2026-06-15 17:47:30.912 +03:00 [INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2026-06-15 17:47:30.913 +03:00 [INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2026-06-15 17:47:30.914 +03:00 [INF] Microsoft.Hosting.Lifetime: Content root path: D:\Graduation Project\cyber_sphere\CyberSphere\CyberSphere.Api
+2026-06-15 17:47:32.389 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/index.html responded 200 in 181.3211ms
+2026-06-15 17:47:32.770 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/v1/swagger.json responded 200 in 116.6280ms
+2026-06-15 19:52:25.682 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/index.html responded 200 in 4.3154ms
+2026-06-15 19:52:25.892 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/v1/swagger.json responded 200 in 79.0155ms
+2026-06-15 20:33:35.599 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/index.html responded 200 in 2.2870ms
+2026-06-15 20:33:36.082 +03:00 [INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /swagger/v1/swagger.json responded 200 in 101.1899ms

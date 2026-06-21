@@ -21,6 +21,7 @@ namespace CyberSphere.Domain.Interfaces.Repositories
 
         Task AddAsync(AiSession session, CancellationToken ct = default);
         void Update(AiSession session);
+        Task AddMessageAsync(AiMessage message, CancellationToken ct = default);
         Task SaveChangesAsync(CancellationToken ct = default);
     }
 

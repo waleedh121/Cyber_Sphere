@@ -5,8 +5,10 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using CyberSphere.Domain.Interfaces.Repositories;
+using CyberSphere.Infrastructure.Resilience;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Polly;
 using Renci.SshNet;
 using Renci.SshNet.Common;
 using SshConnectionInfo = Renci.SshNet.ConnectionInfo;
@@ -25,23 +27,13 @@ namespace CyberSphere.Infrastructure.Services.VM
     {
         private readonly VmSettings _settings;
         private readonly ILogger<SshVmService> _logger;
+        private readonly ResiliencePipeline _sshPipeline;
 
         public SshVmService(IOptions<VmSettings> settings, ILogger<SshVmService> logger)
         {
             _settings = settings.Value;
             _logger = logger;
-        }
-        public void Connect(string host, string username, string password)
-        {
-            SshConnectionInfo connectionInfo =
-                new SshConnectionInfo(
-                    host,
-                    username,
-                    new PasswordAuthenticationMethod(username, password)
-                );
-
-            using var client = new SshClient(connectionInfo);
-            client.Connect();
+            _sshPipeline = ResiliencePolicies.CreateVmSshPipeline(logger);
         }
 
         // ── Health check ──────────────────────────────────────────────────────────
@@ -224,7 +216,7 @@ namespace CyberSphere.Infrastructure.Services.VM
                     "SSH private key not found at '{Path}'. Using no-auth stub for development.",
                     _settings.SshPrivateKeyPath);
 
-                connectionInfo = new SshConnectionInfo(
+                connectionInfo = new ConnectionInfo(
                     ipAddress, port, _settings.SshServiceUser,
                     new NoneAuthenticationMethod(_settings.SshServiceUser));
             }
@@ -248,4 +240,5 @@ namespace CyberSphere.Infrastructure.Services.VM
             return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(raw));
         }
     }
+
 }
